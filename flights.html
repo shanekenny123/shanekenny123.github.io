@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sky Fares - Flights</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/plane.png" rel="icon">
+  <link href="assets/img/plane.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">  <!-- Used for general bootstrap elements -->
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">    <!-- Used for all icons -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">                      <!-- Used for fade-in animations -->
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <a class="img-fluid" href="index"><img src="assets/img/plane.png" alt="" ></a>
+        <h1 class="text-light"><a href="index"><span>Sky Fares</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Flights</h2>
+          <ol>
+            <li><a href="index">Home</a></li>
+            <li>Flights</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Results Section ======= -->
+    <section class="inner-page">
+      <div class="container">
+        <section id="results" class="results">
+          <div class="container">
+
+            <div class="section-title" data-aos="fade-up">
+              <h2>Results</h2>
+              <p>Here Are Your Results</p>
+            </div>
+
+            <div id="searchResults"></div>
+
+          </div>
+        </section>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TODO: Move this to JS file -->
+  <script>
+			document.addEventListener('DOMContentLoaded', function() {
+
+				const url_string = window.location.href;
+				const url = url_string.substring(url_string.indexOf('?')).replaceAll('%3A', '');
+				//const url = new URL(url_string);
+				//const origin = url.searchParams.get("originAirport");
+				var protectedUrl = "";
+				var queryType;
+
+				if (url.includes("tripLength")) {
+					//protectedUrl = "http://FlightApplicationFareRetriever-env.eba-3bpksfrr.eu-west-1.elasticbeanstalk.com/return" + url
+					protectedUrl = "http://localhost:5000/return" + url
+					queryType = "return";
+				}
+				else {
+					//protectedUrl = "http://FlightApplicationFareRetriever-env.eba-3bpksfrr.eu-west-1.elasticbeanstalk.com/oneWay" + url
+					protectedUrl = "http://localhost:5000/oneWay" + url
+				}
+
+				fetch(protectedUrl)
+				  .then(function (response) {
+        			return response.json(); // call the json method on the response to get JSON
+    			  })
+   				  .then(function (json) {
+   				    var results = document.getElementById("searchResults");
+   				    var break_div;
+   				    var parent_div;
+   				    var position_div;
+   				    var box_div;
+   				    var res_title;
+   				    var res_price;
+   				    var uList;
+   				    var list_item1;
+   				    var list_item2;
+   				    var list_item3;
+   				    var list_item4;
+   				    var list_item5;
+   				    var list_item6;
+   				    var button_wrap;
+   				    var button_element;
+   				    var aos_count = 100;
+
+                    //Check if the JSON returned is an error
+   				    if (json[0].error != null) {
+   				      parent_div = document.createElement("div");
+        		      parent_div.setAttribute("class", "row");
+        		      parent_div.setAttribute("data-aos", "fade-left");
+        		      results.appendChild(parent_div);
+        		      position_div = document.createElement("div");
+                      position_div.setAttribute("class", "col-lg-12 col-md-6");
+                      parent_div.appendChild(position_div);
+                      box_div = document.createElement("div");
+                      box_div.setAttribute("class", "box");
+        		      box_div.setAttribute("data-aos", "zoom-in");
+        		      box_div.setAttribute("data-aos-delay", aos_count);
+        		      position_div.appendChild(box_div)
+        		      res_title = document.createElement("h3");
+        		      res_title.innerText = json[0].error;
+                      box_div.appendChild(res_title);
+   				    }
+
+   				    else {
+
+                      if (queryType == "oneway") {
+        		        for (var i = 0; i < json.length; i++) {
+                          if (i == 0 || i % 4 == 0) {
+                            //Create new Row For Every 4 records
+                            break_div = document.createElement("br");
+                            results.appendChild(break_div);
+                            parent_div = document.createElement("div");
+        		            parent_div.setAttribute("class", "row");
+        		            parent_div.setAttribute("data-aos", "fade-left");
+        		            results.appendChild(parent_div);
+        		          }
+
+                          position_div = document.createElement("div");
+                          position_div.setAttribute("class", "col-lg-3 col-md-6");
+                          parent_div.appendChild(position_div);
+
+                          box_div = document.createElement("div");
+                          box_div.setAttribute("class", "box");
+        		          box_div.setAttribute("data-aos", "zoom-in");
+        		          box_div.setAttribute("data-aos-delay", aos_count);
+        		          position_div.appendChild(box_div);
+
+        		          res_title = document.createElement("h3");
+        		          res_title.innerText = json[i].origin + " -> " + json[i].destination;
+                          box_div.appendChild(res_title);
+
+                          res_price = document.createElement("h4");
+                          res_price.innerText = "€" + json[i].price;
+                          box_div.appendChild(res_price);
+
+                          uList = document.createElement("ul");
+                          box_div.appendChild(uList);
+
+                          list_item1 = document.createElement("li");
+                          list_item1.innerText = "Date: " + json[i].date;
+                          uList.appendChild(list_item1);
+                          list_item2 = document.createElement("li");
+                          list_item2.innerText = "Local Departure Time: " + (json[i].localDepartureTime.length == 4 ? json[i].localDepartureTime.substr(0, 2) + ":" + json[i].localDepartureTime.substr(2) : "0" + json[i].localDepartureTime.substr(0, 1) + ":" + json[i].localDepartureTime.substr(1));
+                          uList.appendChild(list_item2);
+                          list_item3 = document.createElement("li");
+                          list_item3.innerText = "Local Arrival Time: " + (json[i].localLandingTime.length == 4 ? json[i].localLandingTime.substr(0, 2) + ":" + json[i].localLandingTime.substr(2) : "0" + json[i].localLandingTime.substr(0, 1) + ":" + json[i].localLandingTime.substr(1));
+                          uList.appendChild(list_item3);
+                          list_item4 = document.createElement("li");
+                          list_item4.innerText = "Departure Day: " + json[i].day;
+                          uList.appendChild(list_item4);
+                          list_item5 = document.createElement("li");
+                          list_item5.innerText = "Airline: " + json[i].airline;
+                          uList.appendChild(list_item5);
+
+                          button_wrap = document.createElement("div");
+                          button_wrap.setAttribute("class", "btn-wrap");
+   				          box_div.appendChild(button_wrap);
+
+                          button_element = document.createElement("a");
+                          button_element.setAttribute("class", "btn-buy");
+                          button_element.setAttribute("href", "http://www." + json[i].airline + ".com");
+                          button_element.innerText = "Book Now";
+                          button_wrap.appendChild(button_element)
+
+        		          results.appendChild(parent_div);
+        		          aos_count = aos_count + 100;
+                        }
+					  }
+
+                      //Else if return query...
+                      else {
+
+                        var column_row_div;
+                        var column_div_1;
+                        var column_div_2;
+                        var uList_1;
+                        var button_wrap_1;
+                        var list_item1_1;
+                        var list_item2_1;
+                        var list_item3_1;
+                        var list_item4_1;
+                        var list_item5_1;
+                        var list_item6_1;
+                        var button_element_1;
+                        var price_length_wrap;
+                        var price_length_text;
+
+        		        for (var i = 0; i < json.length; i++) {
+                          if (i == 0 || i % 2 == 0) {
+                            //Create new Row For Every 2 records
+                            break_div = document.createElement("br");
+                            results.appendChild(break_div);
+                            parent_div = document.createElement("div");
+        		            parent_div.setAttribute("class", "row");
+        		            parent_div.setAttribute("data-aos", "fade-left");
+        		            results.appendChild(parent_div);
+        		          }
+
+                          position_div = document.createElement("div");
+                          position_div.setAttribute("class", "col-lg-6 col-md-6");
+                          parent_div.appendChild(position_div);
+
+                          box_div = document.createElement("div");
+                          box_div.setAttribute("class", "box");
+        		          box_div.setAttribute("data-aos", "zoom-in");
+        		          box_div.setAttribute("data-aos-delay", aos_count);
+        		          position_div.appendChild(box_div);
+
+                          column_row_div = document.createElement("div");
+                          column_row_div.setAttribute("class", "row");
+                          box_div.appendChild(column_row_div);
+
+                          column_div_1 = document.createElement("div");
+                          column_div_1.setAttribute("class", "column");
+                          column_div_1.setAttribute("style", "width: 50%; float:left");
+                          column_row_div.appendChild(column_div_1);
+
+                          column_div_2 = document.createElement("div");
+                          column_div_2.setAttribute("class", "column");
+                          column_div_2.setAttribute("style", "width: 50%; float:right");
+                          column_row_div.appendChild(column_div_2);
+
+        		          res_title = document.createElement("h3");
+        		          res_title.innerText = json[i].outboundFlight.origin + " -> " + json[i].outboundFlight.destination;
+                          column_div_1.appendChild(res_title);
+
+                          res_title = document.createElement("h3");
+        		          res_title.innerText = json[i].returnFlight.origin + " -> " + json[i].returnFlight.destination;
+                          column_div_2.appendChild(res_title);
+
+                          uList = document.createElement("ul");
+                          column_div_1.appendChild(uList);
+
+                          list_item1 = document.createElement("li");
+                          list_item1.innerText = "Date: " + json[i].outboundFlight.date;
+                          uList.appendChild(list_item1);
+                          list_item2 = document.createElement("li");
+                          list_item2.innerText = "Local Departure Time: " + (json[i].outboundFlight.localDepartureTime.toString().length == 4 ? json[i].outboundFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(2) : "0" + json[i].outboundFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(1));
+                          uList.appendChild(list_item2);
+                          list_item3 = document.createElement("li");
+                          list_item3.innerText = "Local Arrival Time: " + (json[i].outboundFlight.localLandingTime.toString().length == 4 ? json[i].outboundFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(2) : "0" + json[i].outboundFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(1));
+                          uList.appendChild(list_item3);
+                          list_item4 = document.createElement("li");
+                          list_item4.innerText = "Departure Day: " + json[i].outboundFlight.day;
+                          uList.appendChild(list_item4);
+                          list_item5 = document.createElement("li");
+                          list_item5.innerText = "Airline: " + json[i].outboundFlight.airline;
+                          uList.appendChild(list_item5);
+                          list_item6 = document.createElement("li");
+                          list_item6.innerText = "Price: €" + json[i].outboundFlight.price;
+                          uList.appendChild(list_item6);
+
+                          uList_1 = document.createElement("ul");
+                          column_div_2.appendChild(uList_1);
+
+                          list_item1_1 = document.createElement("li");
+                          list_item1_1.innerText = "Date: " + json[i].returnFlight.date;
+                          uList_1.appendChild(list_item1_1);
+
+                          list_item2_1 = document.createElement("li");
+                          list_item2_1.innerText = "Local Departure Time: " + (json[i].returnFlight.localDepartureTime.toString().length == 4 ? json[i].returnFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(2) : "0" + json[i].returnFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(1));
+                          uList_1.appendChild(list_item2_1);
+                          list_item3_1 = document.createElement("li");
+                          list_item3_1.innerText = "Local Arrival Time: " + (json[i].returnFlight.localLandingTime.toString().length == 4 ? json[i].returnFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localLandingTime.toString().substring(2) : "0" + json[i].returnFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localLandingTime.toString().substring(1));
+                          uList_1.appendChild(list_item3_1);
+                          list_item4_1 = document.createElement("li");
+                          list_item4_1.innerText = "Departure Day: " + json[i].returnFlight.day;
+                          uList_1.appendChild(list_item4_1);
+                          list_item5_1 = document.createElement("li");
+                          list_item5_1.innerText = "Airline: " + json[i].returnFlight.airline;
+                          uList_1.appendChild(list_item5_1);
+                          list_item6_1 = document.createElement("li");
+                          list_item6_1.innerText = "Price: €" + json[i].returnFlight.price;
+                          uList_1.appendChild(list_item6_1);
+
+                          button_wrap = document.createElement("div");
+                          button_wrap.setAttribute("class", "btn-wrap");
+   				          column_div_1.appendChild(button_wrap);
+
+                          button_element = document.createElement("a");
+                          button_element.setAttribute("class", "btn-buy");
+                          button_element.setAttribute("href", "http://www." + json[i].outboundFlight.airline.replaceAll(" ", "") + ".com");
+                          button_element.innerText = "Book Now";
+                          button_wrap.appendChild(button_element)
+
+                          price_length_wrap = document.createElement("div");
+                          price_length_wrap.setAttribute("class", "btn-wrap");
+   				          box_div.appendChild(price_length_wrap);
+
+                          price_length_text = document.createElement("h4");
+                          price_length_text.innerText = "Price: €" + json[i].price + " | # Days: " + json[i].length;
+   				          price_length_wrap.appendChild(price_length_text);
+
+                          button_wrap_1 = document.createElement("div");
+                          button_wrap_1.setAttribute("class", "btn-wrap");
+   				          column_div_2.appendChild(button_wrap_1);
+
+                          button_element_1 = document.createElement("a");
+                          button_element_1.setAttribute("class", "btn-buy");
+                          button_element_1.setAttribute("href", "http://www." + json[i].returnFlight.airline.replaceAll(" ", "") + ".com");
+                          button_element_1.innerText = "Book Now";
+                          button_wrap_1.appendChild(button_element_1)
+
+        		          results.appendChild(parent_div);
+        		          aos_count = aos_count + 100;
+                        }
+                      }
+                    }
+    			  })
+				  .catch(function (err) {
+
+					var parent_div = document.createElement("div");
+        		    parent_div.setAttribute("class", "row");
+        		    parent_div.setAttribute("data-aos", "fade-left");
+        		    results.appendChild(parent_div);
+        		    var position_div = document.createElement("div");
+                    position_div.setAttribute("class", "col-lg-12 col-md-6");
+                    parent_div.appendChild(position_div);
+                    var box_div = document.createElement("div");
+                    box_div.setAttribute("class", "box");
+        		    box_div.setAttribute("data-aos", "zoom-in");
+        		    box_div.setAttribute("data-aos-delay", "100");
+        		    position_div.appendChild(box_div)
+        		    var res_title = document.createElement("h3");
+        		    res_title.innerText = "Error connecting to Sky Fares API!";
+                    box_div.appendChild(res_title);
+				  });
+
+			}, false);
+  </script>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Sky Fares</h3>
+              <p class="pb-3"><em>The flight finding tool you didn't know you needed.</em></p>
+              <p>
+                Borrisoleigh <br>
+                Tipperary, Ireland<br><br>
+                <strong>Phone:</strong> TBC<br>
+                <strong>Email:</strong> TBC<br>
+              </p>
+              <div class="social-links mt-3">
+				<a href="https://twitter.com/shanekenny123" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bx bxl-twitter"></i></a>
+				<a href="https://github.com/shanekenny123" class="github" target="_blank" rel="noopener noreferrer"><i class="bx bxl-github"></i></a>
+				<a href="https://ie.linkedin.com/in/shanekenny123" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bx bxl-linkedin"></i></a>
+			  </div>
+            </div>
+          </div>
+
+          <!-- TODO: Add smooth scroll functionality to these buttons -->
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#header">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#features">Features</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Airlines</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://www.ryanair.com" target="_blank" rel="noopener noreferrer">Ryanair</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="http://www.easyjet.com" target="_blank" rel="noopener noreferrer">Easyjet</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="http://www.aerlingus.com" target="_blank" rel="noopener noreferrer">Aer Lingus</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="http://www.britishairways.com" target="_blank" rel="noopener noreferrer">British Airways</a></li>
+            </ul>
+          </div>
+
+          <!-- TODO: Add functionality to email list form -->
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Sign-up to get notified when we add new features and airlines!</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Bootslander</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="bx bxs-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sky Fares | The flight finding tool you didn't know you needed.</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/plane.png" rel="icon">
+  <link href="assets/img/plane.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">				 <!-- Used for general bootstrap elements -->
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">				 <!-- Used for all icons -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">									 <!-- Used for fade-in animations -->
+  <link href="assets/vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet"> <!-- Used for form dropdown elements -->
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">										 <!-- Used to define styling elements -->
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <a class="img-fluid" href="index"><img src="assets/img/plane.png" alt="" ></a>
+        <h1 class="text-light"><a href="index"><span>Sky Fares</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+
+    <div class="container">
+      <div class="row">
+
+        <!-- ======= Hero Text ======= -->
+        <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex ">
+          <div class="hero-text">
+            <div data-aos="zoom-out">
+              <h1>Search For Flights Your Way With <a href="index"><span>Sky Fares</span></a></h1>
+              <h2>The flight finding tool you didn't know you needed.</h2>
+              <div class="text-center text-lg-left">
+                <a href="#about" class="btn-get-started scrollto">More Info</a>
+                <a data-target="#searchModal" type="button" class="btn-start-search" data-toggle="modal" >Start Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Hero Card Form ======= -->
+        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+          <div class="card card-4" style="width: 31rem;">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs pull-right"  id="card-tab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="one-way-tab" data-toggle="tab" href="#one-way-c" role="tab" aria-controls="home" aria-selected="true">One Way</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="return-tab" data-toggle="tab" href="#return-c" role="tab" aria-controls="profile" aria-selected="false">Return</a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content" id="card-tab-content">
+                <div class="tab-pane fade show active" id="one-way-c" role="tabpanel" aria-labelledby="one-way-tab">
+
+                  <!-- ======= Card Search Form One-Way ======= -->
+                  <form id="searchFormOW" action="flights" method="GET">
+
+                    <div class="form-group">
+                      <div class="dates">
+                        <label for="dateRangeStartOW">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
+                        <input class="form-control" type="date" id="dateRangeStartOW" name="dateRangeStart" required>
+                        <input class="form-control" type="date" id="dateRangeEndOW" name="dateRangeEnd" required>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="originAirportOW">I Want To Fly From: <font color="#FF0000">*</font></label><br>
+                      <select class="selectpicker" id="originAirportOW" name="originAirport" title="Please Select..." data-live-search="true" multiple data-max-options="5" required>
+                        <option value="DUB">Dublin</option>
+                        <option value="ORK">Cork</option>
+                        <option value="SNN">Shannon</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="destinationAirportOW">I Want To Fly To:</label><br>
+                      <select class="selectpicker" id="destinationAirportOW" name="destinationAirport" title="Anywhere" data-live-search="true" multiple >
+                        <optgroup label="England">
+                          <option value="STN">London Stansted</option>
+                          <option value="LTN">London Luton</option>
+                          <option value="LGW">London Gatwick</option>
+                        </optgroup>
+                        <optgroup label="Spain">
+                          <option value="ACE">Lanzarote</option>
+                          <option value="AGP">Malaga</option>
+                          <option value="BCN">Barcelona</option>
+                        </optgroup>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="times">
+                        <label for="outboundDepartureTimeRangeStartOW">I Want To Fly Out Between:</label><br>
+                        <input type="time" class="form-control" id="outboundDepartureTimeRangeStartOW" name="outboundDepartureTimeRangeStart" value="00:00"/>
+                        <input type="time" class="form-control" id="outboundDepartureTimeRangeEndOW" name="outboundDepartureTimeRangeEnd" value="23:59"/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="departureDayOW">Days I Want To Fly Out:</label><br>
+                      <select class="selectpicker" id="departureDayOW" name="departureDay" title="Any" multiple>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5">Friday</option>
+                        <option value="6">Saturday</option>
+                        <option value="7">Sunday</option>
+                      </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                  </form>
+                </div>
+                <div class="tab-pane fade" id="return-c" role="tabpanel" aria-labelledby="return-tab">
+
+                  <!-- ======= Card Search Form Return ======= -->
+                  <form id="searchFormR" action="flights" method="GET">
+
+                    <div class="form-group">
+                      <div class="dates">
+                        <label for="dateRangeStartR">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
+                        <input class="form-control" type="date" id="dateRangeStartR" name="dateRangeStart" required>
+                        <input class="form-control" type="date" id="dateRangeEndR" name="dateRangeEnd" required>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="originAirportR">I Want To Fly From: <font color="#FF0000">*</font></label><br>
+                      <select class="selectpicker" id="originAirportR" name="originAirport" title="Please Select..." data-live-search="true" multiple data-max-options="5" required>
+                        <option value="DUB">Dublin</option>
+                        <option value="ORK">Cork</option>
+                        <option value="SNN">Shannon</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="duration">
+                        <label for="tripLengthRangeStartR">I Want My Trip To Last Between: <font color="#FF0000">*</font></label><br>
+                        <select class="selectpicker" id="tripLengthRangeStartR" name="tripLengthRangeStart" title="Min..." data-width="30%" required>
+                          <option value="1">1 Day</option>
+                          <option value="2">2 Days</option>
+                          <option value="3">3 Days</option>
+                          <option value="4">4 Days</option>
+                          <option value="5">5 Days</option>
+                          <option value="6">6 Days</option>
+                          <option value="7">7 Days</option>
+                          <option value="8">8 Days</option>
+                          <option value="9">9 Days</option>
+                          <option value="10">10 Days</option>
+                          <option value="11">11 Days</option>
+                          <option value="12">12 Days</option>
+                          <option value="13">13 Days</option>
+                          <option value="14">14 Days</option>
+                        </select>
+                        <select class="selectpicker" id="tripLengthRangeEndR" name="tripLengthRangeEnd" title="Max..." data-width="30%" required>
+                          <option value="1">1 Day</option>
+                          <option value="2">2 Days</option>
+                          <option value="3">3 Days</option>
+                          <option value="4">4 Days</option>
+                          <option value="5">5 Days</option>
+                          <option value="6">6 Days</option>
+                          <option value="7">7 Days</option>
+                          <option value="8">8 Days</option>
+                          <option value="9">9 Days</option>
+                          <option value="10">10 Days</option>
+                          <option value="11">11 Days</option>
+                          <option value="12">12 Days</option>
+                          <option value="13">13 Days</option>
+                          <option value="14">14 Days</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="destinationAirportR">I Want To Fly To:</label><br>
+                      <select class="selectpicker" id="destinationAirportR" name="destinationAirport" title="Anywhere" data-live-search="true" multiple >
+                        <optgroup label="England">
+                          <option value="STN">London Stansted</option>
+                          <option value="LTN">London Luton</option>
+                          <option value="LGW">London Gatwick</option>
+                        </optgroup>
+                        <optgroup label="Spain">
+                          <option value="ACE">Lanzarote</option>
+                          <option value="AGP">Malaga</option>
+                          <option value="BCN">Barcelona</option>
+                        </optgroup>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="times">
+                        <label for="outboundDepartureTimeRangeStartR">I Want To Fly Out Between:</label><br>
+                        <input type="time" class="form-control" id="outboundDepartureTimeRangeStartR" name="outboundDepartureTimeRangeStart" value="00:00"/>
+                        <input type="time" class="form-control" id="outboundDepartureTimeRangeEndR" name="outboundDepartureTimeRangeEnd" value="23:59"/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="departureDayR">Days I Want To Fly Out:</label><br>
+                      <select class="selectpicker" id="departureDayR" name="departureDay" title="Any" multiple>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5">Friday</option>
+                        <option value="6">Saturday</option>
+                        <option value="7">Sunday</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="times">
+                        <label for="returnArrivalTimeRangeStartR">I Want To My Return Flight To Land Between:</label><br>
+                        <input type="time" class="form-control" id="returnArrivalTimeRangeStartR" name="returnArrivalTimeRangeStart" value="00:00"/>
+                        <input type="time" class="form-control" id="returnArrivalTimeRangeEndR" name="returnArrivalTimeRangeEnd" value="23:59"/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="departureDayR">Days I Want To Return:</label><br>
+                      <select class="selectpicker" id="returnDayR" name="returnDay" title="Any" multiple>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5">Friday</option>
+                        <option value="6">Saturday</option>
+                        <option value="7">Sunday</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input type="hidden" class="form-check-input" id="sameOriginAsDestinationUncheckedR" name="sameOriginAsDestination" value="0" checked>
+                        <input type="checkbox" class="form-check-input" id="sameOriginAsDestinationR" name="sameOriginAsDestination" value = "1" checked>
+                        <label class="form-check-label" for="sameOriginAsDestinationR">I Want To Return To Same Airport I Left From</label>
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= Modal Form ======= -->
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <ul class="nav nav-tabs card-header-tabs pull-right"  id="modal-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="one-way-tab-m" data-toggle="tab" href="#one-way-m" role="tab" aria-controls="home" aria-selected="true">One Way</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="return-tab-m" data-toggle="tab" href="#return-m" role="tab" aria-controls="profile" aria-selected="false">Return</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="modal-body">
+                <div class="tab-content" id="modal-tab-content">
+                  <div class="tab-pane fade show active" id="one-way-m" role="tabpanel" aria-labelledby="one-way-tab">
+
+                    <!-- ======= Modal Search Form One-Way ======= -->
+                    <form id="searchFormOWM" action="flights" method="GET">
+
+                      <div class="form-group">
+                        <div class="dates">
+                          <label for="dateRangeStartOWM">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
+                          <div class="input-group">
+                            <input class="form-control" type="date" id="dateRangeStartOWM" name="dateRangeStart" required>
+                            <input class="form-control" type="date" id="dateRangeEndOWM" name="dateRangeEnd" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="originAirportOWM">I Want To Fly From: <font color="#FF0000">*</font></label><br>
+                        <select class="selectpicker" id="originAirportOWM" name="originAirport" title="Please Select..." data-live-search="true" multiple data-max-options="5" required>
+                          <option value="DUB">Dublin</option>
+                          <option value="ORK">Cork</option>
+                          <option value="SNN">Shannon</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="destinationAirportOWM">I Want To Fly To:</label><br>
+                        <select class="selectpicker" id="destinationAirportOWM" name="destinationAirport" title="Anywhere" data-live-search="true" multiple >
+                          <optgroup label="England">
+                            <option value="STN">London Stansted</option>
+                            <option value="LTN">London Luton</option>
+                            <option value="LGW">London Gatwick</option>
+                          </optgroup>
+                          <optgroup label="Spain">
+                            <option value="ACE">Lanzarote</option>
+                            <option value="AGP">Malaga</option>
+                            <option value="BCN">Barcelona</option>
+                          </optgroup>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="times">
+                          <label for="outboundDepartureTimeRangeStartOWM">I Want To Fly Out Between:</label><br>
+                          <div class="input-group">
+                            <input type="time" class="form-control" id="outboundDepartureTimeRangeStartOWM" name="outboundDepartureTimeRangeStart" value="00:00"/>
+                            <input type="time" class="form-control" id="outboundDepartureTimeRangeEndOWM" name="outboundDepartureTimeRangeEnd" value="23:59"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="departureDayOWM">Days I Want To Fly Out:</label><br>
+                        <select class="selectpicker" id="departureDayOWM" name="departureDay" title="Any" multiple>
+                          <option value="1">Monday</option>
+                          <option value="2">Tuesday</option>
+                          <option value="3">Wednesday</option>
+                          <option value="4">Thursday</option>
+                          <option value="5">Friday</option>
+                          <option value="6">Saturday</option>
+                          <option value="7">Sunday</option>
+                        </select>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button data-dismiss="modal" class="btn-close-modal btn-secondary">Close</button>
+                    </form>
+                  </div>
+                  <div class="tab-pane fade" id="return-m" role="tabpanel" aria-labelledby="return-tab">
+
+                    <!-- ======= Modal Search Form Return ======= -->
+                    <form id="searchFormRM" action="flights" method="GET">
+
+                      <div class="form-group">
+                        <div class="dates">
+                          <label for="dateRangeStartRM">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
+                          <div class="input-group">
+                            <input class="form-control" type="date" id="dateRangeStartRM" name="dateRangeStart" required>
+                            <input class="form-control" type="date" id="dateRangeEndRM" name="dateRangeEnd" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="originAirportRM">I Want To Fly From: <font color="#FF0000">*</font></label><br>
+                        <select class="selectpicker" id="originAirportRM" name="originAirport" title="Please Select..." data-live-search="true" multiple data-max-options="5" required>
+                          <option value="DUB">Dublin</option>
+                          <option value="ORK">Cork</option>
+                          <option value="SNN">Shannon</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="duration">
+                          <label for="tripLengthRangeStartRM">I Want My Trip To Last Between: <font color="#FF0000">*</font></label><br>
+                          <select class="selectpicker" id="tripLengthRangeStartRM" name="tripLengthRangeStart" title="Min..." data-width="35%" required>
+                            <option value="1">1 Day</option>
+                            <option value="2">2 Days</option>
+                            <option value="3">3 Days</option>
+                            <option value="4">4 Days</option>
+                            <option value="5">5 Days</option>
+                            <option value="6">6 Days</option>
+                            <option value="7">7 Days</option>
+                            <option value="8">8 Days</option>
+                            <option value="9">9 Days</option>
+                            <option value="10">10 Days</option>
+                            <option value="11">11 Days</option>
+                            <option value="12">12 Days</option>
+                            <option value="13">13 Days</option>
+                            <option value="14">14 Days</option>
+                          </select>
+                          <select class="selectpicker" id="tripLengthRangeEndRM" name="tripLengthRangeEnd" title="Max..." data-width="35%" required>
+                            <option value="1">1 Day</option>
+                            <option value="2">2 Days</option>
+                            <option value="3">3 Days</option>
+                            <option value="4">4 Days</option>
+                            <option value="5">5 Days</option>
+                            <option value="6">6 Days</option>
+                            <option value="7">7 Days</option>
+                            <option value="8">8 Days</option>
+                            <option value="9">9 Days</option>
+                            <option value="10">10 Days</option>
+                            <option value="11">11 Days</option>
+                            <option value="12">12 Days</option>
+                            <option value="13">13 Days</option>
+                            <option value="14">14 Days</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="destinationAirportRM">I Want To Fly To:</label><br>
+                        <select class="selectpicker" id="destinationAirportRM" name="destinationAirport" title="Anywhere" data-live-search="true" multiple >
+                          <optgroup label="England">
+                            <option value="STN">London Stansted</option>
+                            <option value="LTN">London Luton</option>
+                            <option value="LGW">London Gatwick</option>
+                          </optgroup>
+                          <optgroup label="Spain">
+                            <option value="ACE">Lanzarote</option>
+                            <option value="AGP">Malaga</option>
+                            <option value="BCN">Barcelona</option>
+                          </optgroup>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="times">
+                          <label for="outboundDepartureTimeRangeStartRM">I Want To Fly Out Between:</label><br>
+                          <div class="input-group">
+                            <input type="time" class="form-control" id="outboundDepartureTimeRangeStartRM" name="outboundDepartureTimeRangeStart" value="00:00"/>
+                            <input type="time" class="form-control" id="outboundDepartureTimeRangeEndRM" name="outboundDepartureTimeRangeEnd" value="23:59"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="departureDayRM">Days I Want To Fly Out:</label><br>
+                        <select class="selectpicker" id="departureDayRM" name="departureDay" title="Any" multiple>
+                          <option value="1">Monday</option>
+                          <option value="2">Tuesday</option>
+                          <option value="3">Wednesday</option>
+                          <option value="4">Thursday</option>
+                          <option value="5">Friday</option>
+                          <option value="6">Saturday</option>
+                          <option value="7">Sunday</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="times">
+                          <label for="returnArrivalTimeRangeStartRM">I Want To My Return Flight To Land Between:</label><br>
+                          <div class="input-group">
+                            <input type="time" class="form-control" id="returnArrivalTimeRangeStartRM" name="returnArrivalTimeRangeStart" value="00:00"/>
+                            <input type="time" class="form-control" id="returnArrivalTimeRangeEndRM" name="returnArrivalTimeRangeEnd" value="23:59"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="departureDayRM">Days I Want To Return:</label><br>
+                        <select class="selectpicker" id="returnDayRM" name="returnDay" title="Any" multiple>
+                          <option value="1">Monday</option>
+                          <option value="2">Tuesday</option>
+                          <option value="3">Wednesday</option>
+                          <option value="4">Thursday</option>
+                          <option value="5">Friday</option>
+                          <option value="6">Saturday</option>
+                          <option value="7">Sunday</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input type="hidden" class="form-check-input" id="sameOriginAsDestinationUncheckedRM" name="sameOriginAsDestination" value="0" checked>
+                          <input type="checkbox" class="form-check-input" id="sameOriginAsDestinationRM" name="sameOriginAsDestination" value = "1" checked>
+                          <label class="form-check-label" for="sameOriginAsDestinationRM">I Want To Return To Same Airport I Left From</label>
+                        </div>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button data-dismiss="modal" class="btn-close-modal btn-secondary">Close</button>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TODO: Move this to JS file -->
+    <script>
+      //Temporary Date Defaults
+      const today = new Date();
+      const nextYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+
+      document.getElementById('dateRangeStartOW').valueAsDate = today;
+      document.getElementById('dateRangeEndOW').valueAsDate = today;
+      document.getElementById('dateRangeStartOWM').valueAsDate = today;
+      document.getElementById('dateRangeEndOWM').valueAsDate = today;
+
+      document.getElementById('dateRangeStartR').valueAsDate = today;
+      document.getElementById('dateRangeEndR').valueAsDate = today;
+      document.getElementById('dateRangeStartRM').valueAsDate = today;
+      document.getElementById('dateRangeEndRM').valueAsDate = today;
+
+      document.getElementById('dateRangeStart').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndOW').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeStartOWM').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndOWM').min = today.toISOString().split("T")[0];
+
+      document.getElementById('dateRangeStartR').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndR').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeStartRM').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndRM').min = today.toISOString().split("T")[0];
+
+      document.getElementById('dateRangeStartOW').max = nextYear.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndOW').max = nextYear.toISOString().split("T")[0];
+      document.getElementById('dateRangeStartOWM').max = nextYear.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndOWM').max = nextYear.toISOString().split("T")[0];
+
+      document.getElementById('dateRangeStartR').max = nextYear.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndR').max = nextYear.toISOString().split("T")[0];
+      document.getElementById('dateRangeStartRM').max = nextYear.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndRM').max = nextYear.toISOString().split("T")[0];
+    </script>
+
+
+    <!-- ======= Wave Animation ======= -->
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"></use>
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"></use>
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff"></use>
+      </g>
+    </svg>
+
+  </section>
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
+          </div>
+
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
+            <h3>What is Sky Fares?</h3>
+            <p>Sky Fares gives the customer ultimate control in searching for the best value flight fares during times that suit you. We are enabling people to search for flights during times that suit them and their schedule.</p>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon"><i class="bx bx-search"></i></div>
+              <h4 class="title"><a href="">Mix-and-match airlines</a></h4>
+              <p class="description">Our search engine will match flights that suit your schedule, regardless of airline. This means you could be flying out with one airline and back with another.</p>
+            </div>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon"><i class="bx bx-dollar"></i></div>
+              <h4 class="title"><a href="">Up-to-date pricing</a></h4>
+              <p class="description">Modern-day air fares are subject to change price every day. This is why unlike some of our competitors, we will only cache flight prices for 1 day and not for a whole week.</p>
+            </div>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon"><i class="bx bx-calendar-check"></i></div>
+              <h4 class="title"><a href="">Weekend Flights</a></h4>
+              <p class="description">Sky Fares has been created to bring users functionality not currently present in other search platforms. With our system, users can specify the days and times that they want to fly. So, for teachers and others who are restricted on when you can take annual leave, you can narrow your search to suit your schedule.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Features</h2>
+          <p>Check Out Our Features</p>
+        </div>
+
+        <div class="row" data-aos="fade-left">
+          <div class="col-lg-3 col-md-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="50">
+              <i class="bx bxs-plane" style="color: #ffbb2c;"></i>
+              <h3>Multi-Airline Search</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+              <i class="bx bx-refresh" style="color: #5578ff;"></i>
+              <h3>Daily Price Refresh</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
+              <i class="bx bx-calendar-plus" style="color: #e80368;"></i>
+              <h3>Broad Search Options</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+              <i class="bx bx-check-circle" style="color: #e361ff;"></i>
+              <h3>Free To Use</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="250">
+              <i class="bx bx-bar-chart" style="color: #47aeff;"></i>
+              <h3>Impartial Results</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+              <i class="bx bxs-dashboard" style="color: #ffa76e;"></i>
+              <h3>Polished UI</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="350">
+              <i class="bx bx-mobile-alt" style="color: #11dbcf;"></i>
+              <h3>Mobile-Friendly</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
+              <i class="bx bxs-layer" style="color: #4233ff;"></i>
+              <h3>Ongoing Enhancements</h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row" data-aos="fade-up">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="bx bx-transfer"></i>
+              <span data-toggle="counter-up">1</span>
+              <p>Airline (So-Far)</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="bx bx-globe"></i>
+              <span data-toggle="counter-up">250</span>
+              <p>Airports</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="bx bxs-plane-take-off"></i>
+              <span data-toggle="counter-up">40,000</span>
+              <p>Monthly Flights</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="bx bx-code-block"></i>
+              <span data-toggle="counter-up">2,500</span>
+              <p>Lines of Code</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>F.A.Q</h2>
+          <p>Frequently Asked Questions</p>
+        </div>
+
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">Why would I use Sky Fares instead of a more established flight search engine? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+                <p>
+                  There are a number of reasons. We do not have affiliations with any airline and so can we provide fully independent comparisons. We are giving our users the option to make their flight search as simple or as complicated as they like so they can find the flights they want at the best price available.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">What airlines do you search? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-parent=".faq-list">
+                <p>
+                  We are always working on adding support for new airlines on our platform. For now we have support for Ryanair.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">How often do prices change? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-parent=".faq-list">
+                <p>
+                  It varies from airline to airline. In order to ensure we provide our users with the most recent prices, we only cache our data for a single calendar day.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4" class="collapsed">Where can I get the Sky Fares Mobile App? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-parent=".faq-list">
+                <p>
+                  We don't currently have one. Until we do, you can add our mobile-friendly site to your phone's home screen by following one of the following guides: <a class="app-link" href="https://support.apple.com/en-ie/guide/iphone/iph42ab2f3a7/ios" target="_blank" rel="noopener noreferrer">iPhone</a> / <a class="app-link" href="https://support.mozilla.org/en-US/kb/how-add-shortcut-website-android" target="_blank" rel="noopener noreferrer">Android</a>
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-5" class="collapsed">How can I get notified when Sky Fares implements new features or support for additional airlines? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-5" class="collapse" data-parent=".faq-list">
+                <p>
+                  Feel free to join our mailing list in the page footer. We don't believe in needless spam, so you can be assured any email you get from us is worth reading!
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact</h2>
+          <p>Have you thought of something we could do better? We are always open to hearing your suggestions to try and improve the experience for our users.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
+            <div class="info">
+              <div class="address">
+                <i class="bx bxs-map"></i>
+                <h4>Location:</h4>
+                <p>Borrisoleigh, Tipperary, Ireland</p>
+              </div>
+
+              <div class="email">
+                <i class="bx bxs-envelope"></i>
+                <h4>Email:</h4>
+                <p>TBC</p>
+              </div>
+
+              <div class="phone">
+                <i class="bx bxs-phone"></i>
+                <h4>Call:</h4>
+                <p>TBC</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
+
+            <!-- TODO: Add functionality to contact form -->
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Sky Fares</h3>
+              <p class="pb-3"><em>The flight finding tool you didn't know you needed.</em></p>
+              <p>
+                Borrisoleigh <br>
+                Tipperary, Ireland<br><br>
+                <strong>Phone:</strong> TBC<br>
+                <strong>Email:</strong> TBC<br>
+              </p>
+              <div class="social-links mt-3">
+				<a href="https://twitter.com/shanekenny123" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bx bxl-twitter"></i></a>
+				<a href="https://github.com/shanekenny123" class="github" target="_blank" rel="noopener noreferrer"><i class="bx bxl-github"></i></a>
+				<a href="https://ie.linkedin.com/in/shanekenny123" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bx bxl-linkedin"></i></a>
+			  </div>
+            </div>
+          </div>
+
+          <!-- TODO: Add smooth scroll functionality to these buttons -->
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#header">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#features">Features</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Airlines</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://www.ryanair.com" target="_blank" rel="noopener noreferrer">Ryanair</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="http://www.easyjet.com" target="_blank" rel="noopener noreferrer">Easyjet</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="http://www.aerlingus.com" target="_blank" rel="noopener noreferrer">Aer Lingus</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="http://www.britishairways.com" target="_blank" rel="noopener noreferrer">British Airways</a></li>
+            </ul>
+          </div>
+
+          <!-- TODO: Add functionality to email list form -->
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Sign-up to get notified when we add new features and airlines!</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Bootslander</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="bx bxs-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>						<!-- Used to allow other vendors to function -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>		<!-- Used for general bootstrap functionality -->
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>			<!-- Used for smooth scrolling -->
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>			<!-- Used for triggering functions on scroll -->
+  <script src="assets/vendor/counterup/counterup.min.js"></script>					<!-- Used for number counters -->
+  <script src="assets/vendor/aos/aos.js"></script>                                  <!-- Used for fade-in animations -->
+  <script src="assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>	<!-- Used for form dropdown elements -->
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>											<!-- Used to define JS elements -->
+
+</body>
+
+</html>
