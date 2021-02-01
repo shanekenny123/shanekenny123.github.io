@@ -99,13 +99,11 @@
 				var queryType;
 
 				if (url.includes("tripLength")) {
-					//protectedUrl = "http://FlightApplicationFareRetriever-env.eba-3bpksfrr.eu-west-1.elasticbeanstalk.com/return" + url
-					protectedUrl = "http://localhost:5000/return" + url
+					protectedUrl = "http://flightapplicationfareretriever-env.eba-3bpksfrr.eu-west-1.elasticbeanstalk.com/return" + url
 					queryType = "return";
 				}
 				else {
-					//protectedUrl = "http://FlightApplicationFareRetriever-env.eba-3bpksfrr.eu-west-1.elasticbeanstalk.com/oneWay" + url
-					protectedUrl = "http://localhost:5000/oneWay" + url
+					protectedUrl = "http://flightapplicationfareretriever-env.eba-3bpksfrr.eu-west-1.elasticbeanstalk.com/oneWay" + url
 				}
 
 				fetch(protectedUrl)
