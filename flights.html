@@ -99,11 +99,11 @@
 				var queryType;
 
 				if (url.includes("tripLength")) {
-					protectedUrl = "http://flightapplicationfareretriever-env.eba-3bpksfrr.eu-west-1.elasticbeanstalk.com/return" + url
+					protectedUrl = "https://api.skyfaresfareretrieverapi.link/return" + url
 					queryType = "return";
 				}
 				else {
-					protectedUrl = "http://flightapplicationfareretriever-env.eba-3bpksfrr.eu-west-1.elasticbeanstalk.com/oneWay" + url
+					protectedUrl = "https://api.skyfaresfareretrieverapi.link/oneWay" + url
 				}
 
 				fetch(protectedUrl)
