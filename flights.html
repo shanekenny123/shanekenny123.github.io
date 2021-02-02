@@ -188,6 +188,7 @@
                           list_item1.innerText = "Date: " + json[i].date;
                           uList.appendChild(list_item1);
                           list_item2 = document.createElement("li");
+                          alert(json[i].localDepartureTime.length);
                           list_item2.innerText = "Local Departure Time: " + (json[i].localDepartureTime.length == 4 ? json[i].localDepartureTime.toString().substr(0, 3) + ":" + json[i].localDepartureTime.toString().substr(3) : "0" + json[i].localDepartureTime.toString().substr(0, 1) + ":" + json[i].localDepartureTime.toString().substr(1));
                           uList.appendChild(list_item2);
                           list_item3 = document.createElement("li");
