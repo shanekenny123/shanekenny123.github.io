@@ -104,6 +104,7 @@
 				}
 				else {
 					protectedUrl = "https://api.skyfaresfareretrieverapi.link/oneWay" + url
+					queryType = "oneway";
 				}
 
 				fetch(protectedUrl)
@@ -187,10 +188,10 @@
                           list_item1.innerText = "Date: " + json[i].date;
                           uList.appendChild(list_item1);
                           list_item2 = document.createElement("li");
-                          list_item2.innerText = "Local Departure Time: " + (json[i].localDepartureTime.length == 4 ? json[i].localDepartureTime.substr(0, 2) + ":" + json[i].localDepartureTime.substr(2) : "0" + json[i].localDepartureTime.substr(0, 1) + ":" + json[i].localDepartureTime.substr(1));
+                          list_item2.innerText = "Local Departure Time: " + (json[i].localDepartureTime.length == 4 ? json[i].localDepartureTime.toString().substr(0, 2) + ":" + json[i].localDepartureTime.toString().substr(2) : "0" + json[i].localDepartureTime.toString().substr(0, 1) + ":" + json[i].localDepartureTime.toString().substr(1));
                           uList.appendChild(list_item2);
                           list_item3 = document.createElement("li");
-                          list_item3.innerText = "Local Arrival Time: " + (json[i].localLandingTime.length == 4 ? json[i].localLandingTime.substr(0, 2) + ":" + json[i].localLandingTime.substr(2) : "0" + json[i].localLandingTime.substr(0, 1) + ":" + json[i].localLandingTime.substr(1));
+                          list_item3.innerText = "Local Arrival Time: " + (json[i].localLandingTime.length == 4 ? json[i].localLandingTime.toString().substr(0, 2) + ":" + json[i].localLandingTime.toString().substr(2) : "0" + json[i].localLandingTime.toString().substr(0, 1) + ":" + json[i].localLandingTime.toString().substr(1));
                           uList.appendChild(list_item3);
                           list_item4 = document.createElement("li");
                           list_item4.innerText = "Departure Day: " + json[i].day;
@@ -231,6 +232,7 @@
                         var button_element_1;
                         var price_length_wrap;
                         var price_length_text;
+                        var trip_price;
 
         		        for (var i = 0; i < json.length; i++) {
                           if (i == 0 || i % 2 == 0) {
@@ -242,6 +244,8 @@
         		            parent_div.setAttribute("data-aos", "fade-left");
         		            results.appendChild(parent_div);
         		          }
+
+                          trip_price = json[i].price.indexOf(".") != -1 ? json[i].price.toString().substring(0,5) : json[i].price
 
                           position_div = document.createElement("div");
                           position_div.setAttribute("class", "col-lg-6 col-md-6");
@@ -335,7 +339,7 @@
    				          box_div.appendChild(price_length_wrap);
 
                           price_length_text = document.createElement("h4");
-                          price_length_text.innerText = "Price: €" + json[i].price + " | # Days: " + json[i].length;
+                          price_length_text.innerText = "Price: €" + trip_price + " | # Days: " + json[i].length;
    				          price_length_wrap.appendChild(price_length_text);
 
                           button_wrap_1 = document.createElement("div");
@@ -355,7 +359,7 @@
                     }
     			  })
 				  .catch(function (err) {
-
+                    console.log(err)
 					var parent_div = document.createElement("div");
         		    parent_div.setAttribute("class", "row");
         		    parent_div.setAttribute("data-aos", "fade-left");
