@@ -94,8 +94,8 @@
                     <div class="form-group">
                       <div class="dates">
                         <label for="dateRangeStartOW">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
-                        <input class="form-control" type="date" id="dateRangeStartOW" name="dateRangeStart" max="2021-10-31" required>
-                        <input class="form-control" type="date" id="dateRangeEndOW" name="dateRangeEnd" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeStartOW" name="dateRangeStart" min="2021-04-01" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeEndOW" name="dateRangeEnd" min="2021-04-01" max="2021-10-31" required>
                       </div>
                     </div>
 
@@ -157,8 +157,8 @@
                     <div class="form-group">
                       <div class="dates">
                         <label for="dateRangeStartR">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
-                        <input class="form-control" type="date" id="dateRangeStartR" name="dateRangeStart" max="2021-10-31" required>
-                        <input class="form-control" type="date" id="dateRangeEndR" name="dateRangeEnd" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeStartR" name="dateRangeStart" min="2021-04-01" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeEndR" name="dateRangeEnd" min="2021-04-01" max="2021-10-31" required>
                       </div>
                     </div>
 
@@ -309,8 +309,8 @@
                         <div class="dates">
                           <label for="dateRangeStartOWM">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
                           <div class="input-group">
-                            <input class="form-control" type="date" id="dateRangeStartOWM" name="dateRangeStart" max="2021-10-31" required>
-                            <input class="form-control" type="date" id="dateRangeEndOWM" name="dateRangeEnd" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeStartOWM" name="dateRangeStart" min="2021-04-01" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeEndOWM" name="dateRangeEnd" min="2021-04-01" max="2021-10-31" required>
                           </div>
                         </div>
                       </div>
@@ -375,8 +375,8 @@
                         <div class="dates">
                           <label for="dateRangeStartRM">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
                           <div class="input-group">
-                            <input class="form-control" type="date" id="dateRangeStartRM" name="dateRangeStart" max="2021-10-31" required>
-                            <input class="form-control" type="date" id="dateRangeEndRM" name="dateRangeEnd" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeStartRM" name="dateRangeStart" min="2021-04-01" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeEndRM" name="dateRangeEnd" min="2021-04-01" max="2021-10-31" required>
                           </div>
                         </div>
                       </div>
@@ -513,6 +513,7 @@
     </div>
 
     <!-- TODO: Move this to JS file -->
+    <!--
     <script>
       //Temporary Date Defaults
       const today = new Date();
@@ -548,7 +549,7 @@
       document.getElementById('dateRangeStartRM').max = nextYear.toISOString().split("T")[0];
       document.getElementById('dateRangeEndRM').max = nextYear.toISOString().split("T")[0];
     </script>
-
+-->
 
     <!-- ======= Wave Animation ======= -->
     <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
