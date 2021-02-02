@@ -188,10 +188,10 @@
                           list_item1.innerText = "Date: " + json[i].date;
                           uList.appendChild(list_item1);
                           list_item2 = document.createElement("li");
-                          list_item2.innerText = "Local Departure Time: " + (json[i].localDepartureTime.length == 4 ? json[i].localDepartureTime.toString().substr(0, 2) + ":" + json[i].localDepartureTime.toString().substr(2) : "0" + json[i].localDepartureTime.toString().substr(0, 1) + ":" + json[i].localDepartureTime.toString().substr(1));
+                          list_item2.innerText = "Local Departure Time: " + (json[i].localDepartureTime.length == 4 ? json[i].localDepartureTime.toString().substr(0, 3) + ":" + json[i].localDepartureTime.toString().substr(3) : "0" + json[i].localDepartureTime.toString().substr(0, 1) + ":" + json[i].localDepartureTime.toString().substr(1));
                           uList.appendChild(list_item2);
                           list_item3 = document.createElement("li");
-                          list_item3.innerText = "Local Arrival Time: " + (json[i].localLandingTime.length == 4 ? json[i].localLandingTime.toString().substr(0, 2) + ":" + json[i].localLandingTime.toString().substr(2) : "0" + json[i].localLandingTime.toString().substr(0, 1) + ":" + json[i].localLandingTime.toString().substr(1));
+                          list_item3.innerText = "Local Arrival Time: " + (json[i].localLandingTime.length == 4 ? json[i].localLandingTime.toString().substr(0, 3) + ":" + json[i].localLandingTime.toString().substr(3) : "0" + json[i].localLandingTime.toString().substr(0, 1) + ":" + json[i].localLandingTime.toString().substr(1));
                           uList.appendChild(list_item3);
                           list_item4 = document.createElement("li");
                           list_item4.innerText = "Departure Day: " + json[i].day;
@@ -286,10 +286,10 @@
                           list_item1.innerText = "Date: " + json[i].outboundFlight.date;
                           uList.appendChild(list_item1);
                           list_item2 = document.createElement("li");
-                          list_item2.innerText = "Local Departure Time: " + (json[i].outboundFlight.localDepartureTime.toString().length == 4 ? json[i].outboundFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(2) : "0" + json[i].outboundFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(1));
+                          list_item2.innerText = "Local Departure Time: " + (json[i].outboundFlight.localDepartureTime.toString().length == 4 ? json[i].outboundFlight.localDepartureTime.toString().substring(0, 3) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(3) : "0" + json[i].outboundFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(1));
                           uList.appendChild(list_item2);
                           list_item3 = document.createElement("li");
-                          list_item3.innerText = "Local Arrival Time: " + (json[i].outboundFlight.localLandingTime.toString().length == 4 ? json[i].outboundFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(2) : "0" + json[i].outboundFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(1));
+                          list_item3.innerText = "Local Arrival Time: " + (json[i].outboundFlight.localLandingTime.toString().length == 4 ? json[i].outboundFlight.localLandingTime.toString().substring(0, 3) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(3) : "0" + json[i].outboundFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(1));
                           uList.appendChild(list_item3);
                           list_item4 = document.createElement("li");
                           list_item4.innerText = "Departure Day: " + json[i].outboundFlight.day;
@@ -309,10 +309,10 @@
                           uList_1.appendChild(list_item1_1);
 
                           list_item2_1 = document.createElement("li");
-                          list_item2_1.innerText = "Local Departure Time: " + (json[i].returnFlight.localDepartureTime.toString().length == 4 ? json[i].returnFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(2) : "0" + json[i].returnFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(1));
+                          list_item2_1.innerText = "Local Departure Time: " + (json[i].returnFlight.localDepartureTime.toString().length == 4 ? json[i].returnFlight.localDepartureTime.toString().substring(0, 3) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(3) : "0" + json[i].returnFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(1));
                           uList_1.appendChild(list_item2_1);
                           list_item3_1 = document.createElement("li");
-                          list_item3_1.innerText = "Local Arrival Time: " + (json[i].returnFlight.localLandingTime.toString().length == 4 ? json[i].returnFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localLandingTime.toString().substring(2) : "0" + json[i].returnFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localLandingTime.toString().substring(1));
+                          list_item3_1.innerText = "Local Arrival Time: " + (json[i].returnFlight.localLandingTime.toString().length == 4 ? json[i].returnFlight.localLandingTime.toString().substring(0, 3) + ":" + json[i].returnFlight.localLandingTime.toString().substring(3) : "0" + json[i].returnFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localLandingTime.toString().substring(1));
                           uList_1.appendChild(list_item3_1);
                           list_item4_1 = document.createElement("li");
                           list_item4_1.innerText = "Departure Day: " + json[i].returnFlight.day;
