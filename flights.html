@@ -206,7 +206,9 @@
 
                           button_element = document.createElement("a");
                           button_element.setAttribute("class", "btn-buy");
-                          button_element.setAttribute("href", "http://www." + json[i].airline + ".com");
+                          button_element.setAttribute("target", "_blank");
+                          button_element.setAttribute("rel", "noopener noreferrer");
+                          button_element.setAttribute("href", "https://www." + json[i].airline + ".com/ie/en/trip/flights/select?adults=1&dateOut=" + json[i].date + "&originIata=" + json[i].origin + "&destinationIata=" + json[i].destination + "&tpAdults=1");
                           button_element.innerText = "Book Now";
                           button_wrap.appendChild(button_element)
 
@@ -330,7 +332,9 @@
 
                           button_element = document.createElement("a");
                           button_element.setAttribute("class", "btn-buy");
-                          button_element.setAttribute("href", "http://www." + json[i].outboundFlight.airline.replaceAll(" ", "") + ".com");
+                          button_element.setAttribute("target", "_blank");
+                          button_element.setAttribute("rel", "noopener noreferrer");
+                          button_element.setAttribute("href", "https://www." + json[i].outboundFlight.airline.replaceAll(" ", "") + ".com/ie/en/trip/flights/select?adults=1&dateOut=" + json[i].outboundFlight.date + "&originIata=" + json[i].outboundFlight.origin + "&destinationIata=" + json[i].outboundFlight.destination + "&tpAdults=1");
                           button_element.innerText = "Book Now";
                           button_wrap.appendChild(button_element)
 
@@ -348,7 +352,9 @@
 
                           button_element_1 = document.createElement("a");
                           button_element_1.setAttribute("class", "btn-buy");
-                          button_element_1.setAttribute("href", "http://www." + json[i].returnFlight.airline.replaceAll(" ", "") + ".com");
+                          button_element.setAttribute("target", "_blank");
+                          button_element.setAttribute("rel", "noopener noreferrer");
+                          button_element_1.setAttribute("href", "https://www." + json[i].returnFlight.airline.replaceAll(" ", "") + ".com/ie/en/trip/flights/select?adults=1&dateOut=" + json[i].returnFlight.date + "&originIata=" + json[i].returnFlight.origin + "&destinationIata=" + json[i].returnFlight.destination + "&tpAdults=1");
                           button_element_1.innerText = "Book Now";
                           button_wrap_1.appendChild(button_element_1)
 
@@ -419,10 +425,10 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Airlines</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="http://www.ryanair.com" target="_blank" rel="noopener noreferrer">Ryanair</a></li>
-			  <li><i class="bx bx-chevron-right"></i> <a href="http://www.easyjet.com" target="_blank" rel="noopener noreferrer">Easyjet</a></li>
-			  <li><i class="bx bx-chevron-right"></i> <a href="http://www.aerlingus.com" target="_blank" rel="noopener noreferrer">Aer Lingus</a></li>
-			  <li><i class="bx bx-chevron-right"></i> <a href="http://www.britishairways.com" target="_blank" rel="noopener noreferrer">British Airways</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.ryanair.com" target="_blank" rel="noopener noreferrer">Ryanair</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="https://www.easyjet.com" target="_blank" rel="noopener noreferrer">Easyjet</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="https://www.aerlingus.com" target="_blank" rel="noopener noreferrer">Aer Lingus</a></li>
+			  <li><i class="bx bx-chevron-right"></i> <a href="https://www.britishairways.com" target="_blank" rel="noopener noreferrer">British Airways</a></li>
             </ul>
           </div>
 
