@@ -10,6 +10,26 @@
     }
   });
 
+  $('#dateRangeStartOW').change(function() {
+      document.getElementById("dateRangeEndOW").value = document.getElementById("dateRangeStartOW").value;
+      document.getElementById("dateRangeEndOW").setAttribute("min", document.getElementById("dateRangeStartOW").value);
+  });
+
+  $('#dateRangeStartOWM').change(function() {
+      document.getElementById("dateRangeEndOWM").value = document.getElementById("dateRangeStartOWM").value;
+      document.getElementById("dateRangeEndOWM").setAttribute("min", document.getElementById("dateRangeStartOWM").value);
+  });
+
+  $('#dateRangeStartR').change(function() {
+      document.getElementById("dateRangeEndR").value = document.getElementById("dateRangeStartR").value;
+      document.getElementById("dateRangeEndR").setAttribute("min", document.getElementById("dateRangeStartR").value);
+  });
+
+  $('#dateRangeStartRM').change(function() {
+      document.getElementById("dateRangeEndRM").value = document.getElementById("dateRangeStartRM").value;
+      document.getElementById("dateRangeEndRM").setAttribute("min", document.getElementById("dateRangeStartRM").value);
+  });
+
   // Smooth scroll for the navigation menu and links with .scrollto classes
   var scrolltoOffset = $('#header').outerHeight() - 21;
   $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {
