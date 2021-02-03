@@ -194,13 +194,13 @@
                           list_item1.innerText = "Date: " + json[i].date;
                           uList.appendChild(list_item1);
                           list_item2 = document.createElement("li");
-                          list_item2.innerText = "Local Departure Time: " + (json[i].localDepartureTime.toString().length == 4 ? json[i].localDepartureTime.toString().substr(0, 2) + ":" + json[i].localDepartureTime.toString().substr(2) : "0" + json[i].localDepartureTime.toString().substr(0, 1) + ":" + json[i].localDepartureTime.toString().substr(1));
+                          list_item2.innerText = "Local Dep Time: " + (json[i].localDepartureTime.toString().length == 4 ? json[i].localDepartureTime.toString().substr(0, 2) + ":" + json[i].localDepartureTime.toString().substr(2) : "0" + json[i].localDepartureTime.toString().substr(0, 1) + ":" + json[i].localDepartureTime.toString().substr(1));
                           uList.appendChild(list_item2);
                           list_item3 = document.createElement("li");
-                          list_item3.innerText = "Local Arrival Time: " + (json[i].localLandingTime.toString().length == 4 ? json[i].localLandingTime.toString().substr(0, 2) + ":" + json[i].localLandingTime.toString().substr(2) : "0" + json[i].localLandingTime.toString().substr(0, 1) + ":" + json[i].localLandingTime.toString().substr(1));
+                          list_item3.innerText = "Local Arr Time: " + (json[i].localLandingTime.toString().length == 4 ? json[i].localLandingTime.toString().substr(0, 2) + ":" + json[i].localLandingTime.toString().substr(2) : "0" + json[i].localLandingTime.toString().substr(0, 1) + ":" + json[i].localLandingTime.toString().substr(1));
                           uList.appendChild(list_item3);
                           list_item4 = document.createElement("li");
-                          list_item4.innerText = "Departure Day: " + json[i].day;
+                          list_item4.innerText = "Dep Day: " + json[i].day;
                           uList.appendChild(list_item4);
                           list_item5 = document.createElement("li");
                           list_item5.innerText = "Airline: " + json[i].airline;
@@ -215,7 +215,7 @@
                           button_element.setAttribute("target", "_blank");
                           button_element.setAttribute("rel", "noopener noreferrer");
                           button_element.setAttribute("href", "https://www." + json[i].airline + ".com/ie/en/trip/flights/select?adults=1&dateOut=" + json[i].date + "&originIata=" + json[i].origin + "&destinationIata=" + json[i].destination + "&tpAdults=1");
-                          button_element.innerText = "Book Now";
+                          button_element.innerText = "Book";
                           button_wrap.appendChild(button_element)
 
         		          results.appendChild(parent_div);
@@ -294,13 +294,13 @@
                           list_item1.innerText = "Date: " + json[i].outboundFlight.date;
                           uList.appendChild(list_item1);
                           list_item2 = document.createElement("li");
-                          list_item2.innerText = "Local Departure Time: " + (json[i].outboundFlight.localDepartureTime.toString().length == 4 ? json[i].outboundFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(2) : "0" + json[i].outboundFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(1));
+                          list_item2.innerText = "Local Dep Time: " + (json[i].outboundFlight.localDepartureTime.toString().length == 4 ? json[i].outboundFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(2) : "0" + json[i].outboundFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(1));
                           uList.appendChild(list_item2);
                           list_item3 = document.createElement("li");
-                          list_item3.innerText = "Local Arrival Time: " + (json[i].outboundFlight.localLandingTime.toString().length == 4 ? json[i].outboundFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(2) : "0" + json[i].outboundFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(1));
+                          list_item3.innerText = "Local Arr Time: " + (json[i].outboundFlight.localLandingTime.toString().length == 4 ? json[i].outboundFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(2) : "0" + json[i].outboundFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(1));
                           uList.appendChild(list_item3);
                           list_item4 = document.createElement("li");
-                          list_item4.innerText = "Departure Day: " + json[i].outboundFlight.day;
+                          list_item4.innerText = "Dep Day: " + json[i].outboundFlight.day;
                           uList.appendChild(list_item4);
                           list_item5 = document.createElement("li");
                           list_item5.innerText = "Airline: " + json[i].outboundFlight.airline;
@@ -317,13 +317,13 @@
                           uList_1.appendChild(list_item1_1);
 
                           list_item2_1 = document.createElement("li");
-                          list_item2_1.innerText = "Local Departure Time: " + (json[i].returnFlight.localDepartureTime.toString().length == 4 ? json[i].returnFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(2) : "0" + json[i].returnFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(1));
+                          list_item2_1.innerText = "Local Dep Time: " + (json[i].returnFlight.localDepartureTime.toString().length == 4 ? json[i].returnFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(2) : "0" + json[i].returnFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(1));
                           uList_1.appendChild(list_item2_1);
                           list_item3_1 = document.createElement("li");
-                          list_item3_1.innerText = "Local Arrival Time: " + (json[i].returnFlight.localLandingTime.toString().length == 4 ? json[i].returnFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localLandingTime.toString().substring(2) : "0" + json[i].returnFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localLandingTime.toString().substring(1));
+                          list_item3_1.innerText = "Local Arr Time: " + (json[i].returnFlight.localLandingTime.toString().length == 4 ? json[i].returnFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localLandingTime.toString().substring(2) : "0" + json[i].returnFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localLandingTime.toString().substring(1));
                           uList_1.appendChild(list_item3_1);
                           list_item4_1 = document.createElement("li");
-                          list_item4_1.innerText = "Departure Day: " + json[i].returnFlight.day;
+                          list_item4_1.innerText = "Dep Day: " + json[i].returnFlight.day;
                           uList_1.appendChild(list_item4_1);
                           list_item5_1 = document.createElement("li");
                           list_item5_1.innerText = "Airline: " + json[i].returnFlight.airline;
@@ -341,7 +341,7 @@
                           button_element.setAttribute("target", "_blank");
                           button_element.setAttribute("rel", "noopener noreferrer");
                           button_element.setAttribute("href", "https://www." + json[i].outboundFlight.airline.replaceAll(" ", "") + ".com/ie/en/trip/flights/select?adults=1&dateOut=" + json[i].outboundFlight.date + "&originIata=" + json[i].outboundFlight.origin + "&destinationIata=" + json[i].outboundFlight.destination + "&tpAdults=1");
-                          button_element.innerText = "Book Now";
+                          button_element.innerText = "Book";
                           button_wrap.appendChild(button_element)
 
                           price_length_wrap = document.createElement("div");
@@ -361,7 +361,7 @@
                           button_element.setAttribute("target", "_blank");
                           button_element.setAttribute("rel", "noopener noreferrer");
                           button_element_1.setAttribute("href", "https://www." + json[i].returnFlight.airline.replaceAll(" ", "") + ".com/ie/en/trip/flights/select?adults=1&dateOut=" + json[i].returnFlight.date + "&originIata=" + json[i].returnFlight.origin + "&destinationIata=" + json[i].returnFlight.destination + "&tpAdults=1");
-                          button_element_1.innerText = "Book Now";
+                          button_element_1.innerText = "Book";
                           button_wrap_1.appendChild(button_element_1)
 
         		          results.appendChild(parent_div);
