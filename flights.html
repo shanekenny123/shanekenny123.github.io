@@ -247,7 +247,7 @@
         		            results.appendChild(parent_div);
         		          }
 
-                          trip_price = json[i].price.indexOf(".") != -1 ? json[i].price.toString().substring(0,5) : json[i].price
+                          trip_price = json[i].price.toString().indexOf(".") != -1 ? json[i].price.toString().substring(0,5) : json[i].price
 
                           position_div = document.createElement("div");
                           position_div.setAttribute("class", "col-lg-6 col-md-6");
