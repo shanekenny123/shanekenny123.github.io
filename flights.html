@@ -78,6 +78,7 @@
               <p>Here Are Your Results</p>
             </div>
 
+            <div id="resloader"></div>
             <div id="searchResults"></div>
 
           </div>
@@ -112,6 +113,11 @@
         			return response.json(); // call the json method on the response to get JSON
     			  })
    				  .then(function (json) {
+
+   				    $('#resloader').delay(100).fadeOut('slow', function() {
+                      $(this).remove();
+                    });
+
    				    var results = document.getElementById("searchResults");
    				    var break_div;
    				    var parent_div;
@@ -365,7 +371,11 @@
                     }
     			  })
 				  .catch(function (err) {
-                    console.log(err)
+
+                    $('#resloader').delay(100).fadeOut('slow', function() {
+                      $(this).remove();
+                    });
+
 					var parent_div = document.createElement("div");
         		    parent_div.setAttribute("class", "row");
         		    parent_div.setAttribute("data-aos", "fade-left");
