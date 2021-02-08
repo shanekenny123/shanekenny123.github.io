@@ -1,5 +1,7 @@
 !(function($) {
   "use strict";
+  //TODO: SHOULD THE RETURN DAYS BE CALCULATED FOR YOU DEPENDING ON DEPARTURE DAYS AND TRIP LENGTH SPECIFIED???
+  //TODO: BY DOING SO COULD GET RID OF RETURN DAY AS FIELD
 
   // Preloader
   $(window).on('load', function() {
@@ -180,6 +182,194 @@
   }
   $(window).on('load', function() {
     aos_init();
+  });
+
+  $('#searchButtonOW').click(function() {
+
+      var outDateStart = document.getElementById('dateRangeStartOW').valueAsDate;
+      var outDateEnd = document.getElementById('dateRangeEndOW').valueAsDate;
+      var depDays = [];
+
+      var i = 0;
+      $('#departureDayOW option:selected').each(function() {
+
+          if (parseInt(this.value) == 7)
+              this.value = 0;
+          depDays[i] = parseInt(this.value);
+          i++;
+      });
+
+      //Get number of different days in date range
+      var difference = outDateEnd.getTime() - outDateStart.getTime();
+      var numOfDaysBetweenDates = (Math.ceil(difference / (1000 * 3600 * 24)) + 1); //Add 1 as end date is inclusive
+
+      //If number of days in date range is less than 7, then check if all the outbound days specified are possible
+      var check = 0;
+      var dayInDateRange = outDateStart.getDay();
+      var increment = 0;
+
+      if (numOfDaysBetweenDates < 7) {
+
+          for (var k = 0 ; k < numOfDaysBetweenDates; k++) {
+
+              if(depDays.includes((parseInt(dayInDateRange) + parseInt(increment))))
+                  check++;
+
+              increment++;
+
+              if(dayInDateRange + increment == 7) {
+                  dayInDateRange = 0;
+                  increment = 0;
+              }
+          }
+
+          //Throw error as some days specified in out days don't fall in outbound date range
+          if (check != depDays.length) {
+             alert("Some of the days specified in the fly out days don't occur in the departure date range!");
+             return false;
+          }
+      }
+  });
+
+  $('#searchButtonOW').click(function() {
+
+      var outDateStart = document.getElementById('dateRangeStartOWM').valueAsDate;
+      var outDateEnd = document.getElementById('dateRangeEndOWM').valueAsDate;
+      var depDays = [];
+
+      var i = 0;
+      $('#departureDayOWM option:selected').each(function() {
+
+          if (parseInt(this.value) == 7)
+              this.value = 0;
+          depDays[i] = parseInt(this.value);
+          i++;
+      });
+
+      //Get number of different days in date range
+      var difference = outDateEnd.getTime() - outDateStart.getTime();
+      var numOfDaysBetweenDates = (Math.ceil(difference / (1000 * 3600 * 24)) + 1); //Add 1 as end date is inclusive
+
+      //If number of days in date range is less than 7, then check if all the outbound days specified are possible
+      var check = 0;
+      var dayInDateRange = outDateStart.getDay();
+      var increment = 0;
+
+      if (numOfDaysBetweenDates < 7) {
+
+          for (var k = 0 ; k < numOfDaysBetweenDates; k++) {
+
+              if(depDays.includes((parseInt(dayInDateRange) + parseInt(increment))))
+                  check++;
+
+              increment++;
+
+              if(dayInDateRange + increment == 7) {
+                  dayInDateRange = 0;
+                  increment = 0;
+              }
+          }
+
+          //Throw error as some days specified in out days don't fall in outbound date range
+          if (check != depDays.length) {
+             alert("Some of the days specified in the fly out days don't occur in the departure date range!");
+             return false;
+          }
+      }
+  });
+
+  $('#searchButtonR').click(function() {
+
+    var outDateStart = document.getElementById('dateRangeStartR').valueAsDate;
+    var outDateEnd = document.getElementById('dateRangeEndR').valueAsDate;
+    var depDays = [];
+
+    var i = 0;
+    $('#departureDayR option:selected').each(function() {
+
+        if (parseInt(this.value) == 7)
+            this.value = 0;
+        depDays[i] = parseInt(this.value);
+        i++;
+    });
+
+    //Get number of different days in date range
+    var difference = outDateEnd.getTime() - outDateStart.getTime();
+    var numOfDaysBetweenDates = (Math.ceil(difference / (1000 * 3600 * 24)) + 1); //Add 1 as end date is inclusive
+
+    //If number of days in date range is less than 7, then check if all the outbound days specified are possible
+    var check = 0;
+    var dayInDateRange = outDateStart.getDay();
+    var increment = 0;
+
+    if (numOfDaysBetweenDates < 7) {
+
+        for (var k = 0 ; k < numOfDaysBetweenDates; k++) {
+
+            if(depDays.includes((parseInt(dayInDateRange) + parseInt(increment))))
+                check++;
+
+            increment++;
+
+            if(dayInDateRange + increment == 7) {
+                dayInDateRange = 0;
+                increment = 0;
+            }
+        }
+
+        //Throw error as some days specified in out days don't fall in outbound date range
+        if (check != depDays.length) {
+           alert("Some of the days specified in the fly out days don't occur in the departure date range!");
+           return false;
+        }
+    }
+  });
+
+  $('#searchButtonRM').click(function() {
+
+    var outDateStart = document.getElementById('dateRangeStartRM').valueAsDate;
+    var outDateEnd = document.getElementById('dateRangeEndRM').valueAsDate;
+    var depDays = [];
+
+    var i = 0;
+    $('#departureDayRM option:selected').each(function() {
+
+        if (parseInt(this.value) == 7)
+            this.value = 0;
+        depDays[i] = parseInt(this.value);
+        i++;
+    });
+
+    //Get number of different days in date range
+    var difference = outDateEnd.getTime() - outDateStart.getTime();
+    var numOfDaysBetweenDates = (Math.ceil(difference / (1000 * 3600 * 24)) + 1); //Add 1 as end date is inclusive
+
+    //If number of days in date range is less than 7, then check if all the outbound days specified are possible
+    var check = 0;
+    var dayInDateRange = outDateStart.getDay();
+    var increment = 0;
+
+    if (numOfDaysBetweenDates < 7) {
+
+        for (var k = 0 ; k < numOfDaysBetweenDates; k++) {
+
+            if(depDays.includes((parseInt(dayInDateRange) + parseInt(increment))))
+                check++;
+
+            increment++;
+
+            if(dayInDateRange + increment == 7) {
+                dayInDateRange = 0;
+                increment = 0;
+            }
+        }
+
+        //Throw error as some days specified in out days don't fall in outbound date range
+        if (check != depDays.length) {
+           alert("Some of the days specified in the fly out days don't occur in the departure date range!");
+           return false;
+        }
+    }
   });
 
 })(jQuery);
