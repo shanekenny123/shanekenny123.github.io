@@ -132,6 +132,7 @@
    				    var list_item4;
    				    var list_item5;
    				    var list_item6;
+   				    var list_item7;
    				    var button_wrap;
    				    var button_element;
    				    var aos_count = 50;
@@ -184,7 +185,7 @@
                           box_div.appendChild(res_title);
 
                           res_price = document.createElement("h4");
-                          res_price.innerText = "€" + json[i].price;
+                          res_price.innerText = "" + json[i].price;
                           box_div.appendChild(res_price);
 
                           uList = document.createElement("ul");
@@ -194,17 +195,20 @@
                           list_item1.innerText = "Date: " + json[i].date;
                           uList.appendChild(list_item1);
                           list_item2 = document.createElement("li");
-                          list_item2.innerText = "Dep. Time: " + (json[i].localDepartureTime.toString().length == 4 ? json[i].localDepartureTime.toString().substr(0, 2) + ":" + json[i].localDepartureTime.toString().substr(2) : "0" + json[i].localDepartureTime.toString().substr(0, 1) + ":" + json[i].localDepartureTime.toString().substr(1));
+                          list_item2.innerText = "Dep. Time: " + json[i].localDepartureTime;
                           uList.appendChild(list_item2);
                           list_item3 = document.createElement("li");
-                          list_item3.innerText = "Arr. Time: " + (json[i].localLandingTime.toString().length == 4 ? json[i].localLandingTime.toString().substr(0, 2) + ":" + json[i].localLandingTime.toString().substr(2) : "0" + json[i].localLandingTime.toString().substr(0, 1) + ":" + json[i].localLandingTime.toString().substr(1));
+                          list_item3.innerText = "Arr. Time: " + json[i].localLandingTime;
                           uList.appendChild(list_item3);
                           list_item4 = document.createElement("li");
-                          list_item4.innerText = "Dep. Day: " + json[i].day;
+                          list_item4.innerText = "Duration: " + json[i].duration;
                           uList.appendChild(list_item4);
                           list_item5 = document.createElement("li");
-                          list_item5.innerText = "Airline: Ryanair";
+                          list_item5.innerText = "Dep. Day: " + json[i].day;
                           uList.appendChild(list_item5);
+                          list_item6 = document.createElement("li");
+                          list_item6.innerText = "Airline: Ryanair";
+                          uList.appendChild(list_item6);
 
                           button_wrap = document.createElement("div");
                           button_wrap.setAttribute("class", "btn-wrap");
@@ -237,6 +241,7 @@
                         var list_item4_1;
                         var list_item5_1;
                         var list_item6_1;
+                        var list_item7_1;
                         var button_element_1;
                         var price_length_wrap;
                         var price_length_text;
@@ -294,20 +299,23 @@
                           list_item1.innerText = "Date: " + json[i].outboundFlight.date;
                           uList.appendChild(list_item1);
                           list_item2 = document.createElement("li");
-                          list_item2.innerText = "Dep. Time: " + (json[i].outboundFlight.localDepartureTime.toString().length == 4 ? json[i].outboundFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(2) : "0" + json[i].outboundFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localDepartureTime.toString().substring(1));
+                          list_item2.innerText = "Dep. Time: " + json[i].outboundFlight.localDepartureTime;
                           uList.appendChild(list_item2);
                           list_item3 = document.createElement("li");
-                          list_item3.innerText = "Arr. Time: " + (json[i].outboundFlight.localLandingTime.toString().length == 4 ? json[i].outboundFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(2) : "0" + json[i].outboundFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].outboundFlight.localLandingTime.toString().substring(1));
+                          list_item3.innerText = "Arr. Time: " + json[i].outboundFlight.localLandingTime;
                           uList.appendChild(list_item3);
                           list_item4 = document.createElement("li");
-                          list_item4.innerText = "Dep. Day: " + json[i].outboundFlight.day;
+                          list_item4.innerText = "Duration: " + json[i].outboundFlight.duration;
                           uList.appendChild(list_item4);
                           list_item5 = document.createElement("li");
-                          list_item5.innerText = "Airline: Ryanair";
+                          list_item5.innerText = "Dep. Day: " + json[i].outboundFlight.day;
                           uList.appendChild(list_item5);
                           list_item6 = document.createElement("li");
-                          list_item6.innerText = "Price: €" + json[i].outboundFlight.price;
+                          list_item6.innerText = "Airline: Ryanair";
                           uList.appendChild(list_item6);
+                          list_item7 = document.createElement("li");
+                          list_item7.innerText = "Price: " + json[i].outboundFlight.price;
+                          uList.appendChild(list_item7);
 
                           uList_1 = document.createElement("ul");
                           column_div_2.appendChild(uList_1);
@@ -317,20 +325,23 @@
                           uList_1.appendChild(list_item1_1);
 
                           list_item2_1 = document.createElement("li");
-                          list_item2_1.innerText = "Dep. Time: " + (json[i].returnFlight.localDepartureTime.toString().length == 4 ? json[i].returnFlight.localDepartureTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(2) : "0" + json[i].returnFlight.localDepartureTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localDepartureTime.toString().substring(1));
+                          list_item2_1.innerText = "Dep. Time: " + json[i].returnFlight.localDepartureTime;
                           uList_1.appendChild(list_item2_1);
                           list_item3_1 = document.createElement("li");
-                          list_item3_1.innerText = "Arr. Time: " + (json[i].returnFlight.localLandingTime.toString().length == 4 ? json[i].returnFlight.localLandingTime.toString().substring(0, 2) + ":" + json[i].returnFlight.localLandingTime.toString().substring(2) : "0" + json[i].returnFlight.localLandingTime.toString().substring(0, 1) + ":" + json[i].returnFlight.localLandingTime.toString().substring(1));
+                          list_item3_1.innerText = "Arr. Time: " + json[i].returnFlight.localLandingTime;
                           uList_1.appendChild(list_item3_1);
                           list_item4_1 = document.createElement("li");
-                          list_item4_1.innerText = "Dep. Day: " + json[i].returnFlight.day;
+                          list_item4_1.innerText = "Duration: " + json[i].returnFlight.duration;
                           uList_1.appendChild(list_item4_1);
                           list_item5_1 = document.createElement("li");
-                          list_item5_1.innerText = "Airline: Ryanair";
+                          list_item5_1.innerText = "Dep. Day: " + json[i].returnFlight.day;
                           uList_1.appendChild(list_item5_1);
                           list_item6_1 = document.createElement("li");
-                          list_item6_1.innerText = "Price: €" + json[i].returnFlight.price;
+                          list_item6_1.innerText = "Airline: Ryanair";
                           uList_1.appendChild(list_item6_1);
+                          list_item7_1 = document.createElement("li");
+                          list_item7_1.innerText = "Price: " + json[i].returnFlight.price;
+                          uList_1.appendChild(list_item7_1);
 
                           button_wrap = document.createElement("div");
                           button_wrap.setAttribute("class", "btn-wrap");
