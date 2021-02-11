@@ -132,7 +132,6 @@
    				    var list_item4;
    				    var list_item5;
    				    var list_item6;
-   				    var list_item7;
    				    var button_wrap;
    				    var button_element;
    				    var aos_count = 50;
@@ -201,14 +200,14 @@
                           list_item3.innerText = "Arr. Time: " + json[i].localLandingTime;
                           uList.appendChild(list_item3);
                           list_item4 = document.createElement("li");
-                          list_item4.innerText = "Duration: " + json[i].duration;
+                          list_item4.innerText = "Dep. Day: " + json[i].day;
                           uList.appendChild(list_item4);
-                          list_item5 = document.createElement("li");
-                          list_item5.innerText = "Dep. Day: " + json[i].day;
+                          list_item5 = document.createElement("img");
+                          list_item5.setAttribute("src", "assets/img/ryanair.png");
+                          list_item5.setAttribute("style", "height: 13px;");
                           uList.appendChild(list_item5);
-                          list_item6 = document.createElement("li");
-                          list_item6.innerText = "Airline: Ryanair";
-                          uList.appendChild(list_item6);
+
+
 
                           button_wrap = document.createElement("div");
                           button_wrap.setAttribute("class", "btn-wrap");
@@ -241,7 +240,6 @@
                         var list_item4_1;
                         var list_item5_1;
                         var list_item6_1;
-                        var list_item7_1;
                         var button_element_1;
                         var price_length_wrap;
                         var price_length_text;
@@ -305,17 +303,15 @@
                           list_item3.innerText = "Arr. Time: " + json[i].outboundFlight.localLandingTime;
                           uList.appendChild(list_item3);
                           list_item4 = document.createElement("li");
-                          list_item4.innerText = "Duration: " + json[i].outboundFlight.duration;
+                          list_item4.innerText = "Dep. Day: " + json[i].outboundFlight.day;
                           uList.appendChild(list_item4);
-                          list_item5 = document.createElement("li");
-                          list_item5.innerText = "Dep. Day: " + json[i].outboundFlight.day;
+                          list_item5 = document.createElement("img");
+                          list_item5.setAttribute("src", "assets/img/ryanair.png");
+                          list_item5.setAttribute("style", "height: 13px;");
                           uList.appendChild(list_item5);
                           list_item6 = document.createElement("li");
-                          list_item6.innerText = "Airline: Ryanair";
+                          list_item6.innerText = "Price: " + json[i].outboundFlight.price;
                           uList.appendChild(list_item6);
-                          list_item7 = document.createElement("li");
-                          list_item7.innerText = "Price: " + json[i].outboundFlight.price;
-                          uList.appendChild(list_item7);
 
                           uList_1 = document.createElement("ul");
                           column_div_2.appendChild(uList_1);
@@ -331,17 +327,15 @@
                           list_item3_1.innerText = "Arr. Time: " + json[i].returnFlight.localLandingTime;
                           uList_1.appendChild(list_item3_1);
                           list_item4_1 = document.createElement("li");
-                          list_item4_1.innerText = "Duration: " + json[i].returnFlight.duration;
+                          list_item4_1.innerText = "Dep. Day: " + json[i].returnFlight.day;
                           uList_1.appendChild(list_item4_1);
-                          list_item5_1 = document.createElement("li");
-                          list_item5_1.innerText = "Dep. Day: " + json[i].returnFlight.day;
-                          uList_1.appendChild(list_item5_1);
+                          list_item5_1 = document.createElement("img");
+                          list_item5_1.setAttribute("src", "assets/img/ryanair.png");
+                          list_item5_1.setAttribute("style", "height: 13px;");
+                          uList.appendChild(list_item5_1);
                           list_item6_1 = document.createElement("li");
-                          list_item6_1.innerText = "Airline: Ryanair";
+                          list_item6_1.innerText = "Price: " + json[i].returnFlight.price;
                           uList_1.appendChild(list_item6_1);
-                          list_item7_1 = document.createElement("li");
-                          list_item7_1.innerText = "Price: " + json[i].returnFlight.price;
-                          uList_1.appendChild(list_item7_1);
 
                           button_wrap = document.createElement("div");
                           button_wrap.setAttribute("class", "btn-wrap");
