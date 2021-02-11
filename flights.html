@@ -305,12 +305,12 @@
                           list_item4 = document.createElement("li");
                           list_item4.innerText = "Dep. Day: " + json[i].outboundFlight.day;
                           uList.appendChild(list_item4);
-                          list_item5 = document.createElement("img");
-                          list_item5.setAttribute("src", "assets/img/ryanair.png");
-                          list_item5.setAttribute("style", "height: 13px;");
+                          list_item5 = document.createElement("li");
+                          list_item5.innerText = "Price: " + json[i].outboundFlight.price;
                           uList.appendChild(list_item5);
-                          list_item6 = document.createElement("li");
-                          list_item6.innerText = "Price: " + json[i].outboundFlight.price;
+                          list_item6 = document.createElement("img");
+                          list_item6.setAttribute("src", "assets/img/ryanair.png");
+                          list_item6.setAttribute("style", "height: 13px;");
                           uList.appendChild(list_item6);
 
                           uList_1 = document.createElement("ul");
@@ -329,12 +329,12 @@
                           list_item4_1 = document.createElement("li");
                           list_item4_1.innerText = "Dep. Day: " + json[i].returnFlight.day;
                           uList_1.appendChild(list_item4_1);
-                          list_item5_1 = document.createElement("img");
-                          list_item5_1.setAttribute("src", "assets/img/ryanair.png");
-                          list_item5_1.setAttribute("style", "height: 13px;");
-                          uList.appendChild(list_item5_1);
-                          list_item6_1 = document.createElement("li");
-                          list_item6_1.innerText = "Price: " + json[i].returnFlight.price;
+                          list_item5_1 = document.createElement("li");
+                          list_item5_1.innerText = "Price: " + json[i].returnFlight.price;
+                          uList_1.appendChild(list_item5_1);
+                          list_item6_1 = document.createElement("img");
+                          list_item6_1.setAttribute("src", "assets/img/ryanair.png");
+                          list_item6_1.setAttribute("style", "height: 13px;");
                           uList_1.appendChild(list_item6_1);
 
                           button_wrap = document.createElement("div");
