@@ -94,8 +94,8 @@
                     <div class="form-group">
                       <div class="dates">
                         <label for="dateRangeStartOW">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
-                        <input class="form-control" type="date" id="dateRangeStartOW" name="dateRangeStart" min="2021-04-01" max="2021-10-31" required>
-                        <input class="form-control" type="date" id="dateRangeEndOW" name="dateRangeEnd" min="2021-04-01" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeStartOW" name="dateRangeStart" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeEndOW" name="dateRangeEnd" max="2021-10-31" required>
                       </div>
                     </div>
 
@@ -616,8 +616,8 @@
                     <div class="form-group">
                       <div class="dates">
                         <label for="dateRangeStartR">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
-                        <input class="form-control" type="date" id="dateRangeStartR" name="dateRangeStart" min="2021-04-01" max="2021-10-31" required>
-                        <input class="form-control" type="date" id="dateRangeEndR" name="dateRangeEnd" min="2021-04-01" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeStartR" name="dateRangeStart" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeEndR" name="dateRangeEnd" max="2021-10-31" required>
                       </div>
                     </div>
 
@@ -1226,8 +1226,8 @@
                         <div class="dates">
                           <label for="dateRangeStartOWM">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
                           <div class="input-group">
-                            <input class="form-control" type="date" id="dateRangeStartOWM" name="dateRangeStart" min="2021-04-01" max="2021-10-31" required>
-                            <input class="form-control" type="date" id="dateRangeEndOWM" name="dateRangeEnd" min="2021-04-01" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeStartOWM" name="dateRangeStart" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeEndOWM" name="dateRangeEnd" max="2021-10-31" required>
                           </div>
                         </div>
                       </div>
@@ -1751,8 +1751,8 @@
                         <div class="dates">
                           <label for="dateRangeStartRM">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
                           <div class="input-group">
-                            <input class="form-control" type="date" id="dateRangeStartRM" name="dateRangeStart" min="2021-04-01" max="2021-10-31" required>
-                            <input class="form-control" type="date" id="dateRangeEndRM" name="dateRangeEnd" min="2021-04-01" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeStartRM" name="dateRangeStart" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeEndRM" name="dateRangeEnd" max="2021-10-31" required>
                           </div>
                         </div>
                       </div>
@@ -2346,8 +2346,6 @@
       </div>
     </div>
 
-    <!-- TODO: Move this to JS file -->
-    <!--
     <script>
       //Temporary Date Defaults
       const today = new Date();
@@ -2383,7 +2381,6 @@
       document.getElementById('dateRangeStartRM').max = nextYear.toISOString().split("T")[0];
       document.getElementById('dateRangeEndRM').max = nextYear.toISOString().split("T")[0];
     </script>
--->
 
     <!-- ======= Wave Animation ======= -->
     <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
@@ -2712,11 +2709,11 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#header">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#features">Features</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a class="scrollto" href="#header">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a class="scrollto" href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a class="scrollto" href="#features">Features</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a class="scrollto" href="#faq">FAQ</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a class="scrollto" href="#contact">Contact Us</a></li>
             </ul>
           </div>
 
@@ -2724,9 +2721,11 @@
             <h4>Airlines</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="https://www.ryanair.com" target="_blank" rel="noopener noreferrer">Ryanair</a></li>
-			  <li><i class="bx bx-chevron-right"></i> <a href="https://www.easyjet.com" target="_blank" rel="noopener noreferrer">Easyjet</a></li>
-			  <li><i class="bx bx-chevron-right"></i> <a href="https://www.aerlingus.com" target="_blank" rel="noopener noreferrer">Aer Lingus</a></li>
-			  <li><i class="bx bx-chevron-right"></i> <a href="https://www.britishairways.com" target="_blank" rel="noopener noreferrer">British Airways</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.aerlingus.com" target="_blank" rel="noopener noreferrer">Aer Lingus</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.wizzair.com" target="_blank" rel="noopener noreferrer">Wizz Air</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.britishairways.com" target="_blank" rel="noopener noreferrer">British Airways</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.lufthansa.com" target="_blank" rel="noopener noreferrer">Lufthansa</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.easyjet.com" target="_blank" rel="noopener noreferrer">Easyjet</a></li>
             </ul>
           </div>
 
