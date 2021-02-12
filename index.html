@@ -2349,7 +2349,6 @@
     <script>
       //Temporary Date Defaults
       const today = new Date();
-      const nextYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1))
 
       document.getElementById('dateRangeStartOW').valueAsDate = today;
       document.getElementById('dateRangeEndOW').valueAsDate = today;
@@ -2361,7 +2360,7 @@
       document.getElementById('dateRangeStartRM').valueAsDate = today;
       document.getElementById('dateRangeEndRM').valueAsDate = today;
 
-      document.getElementById('dateRangeStart').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeStartOW').min = today.toISOString().split("T")[0];
       document.getElementById('dateRangeEndOW').min = today.toISOString().split("T")[0];
       document.getElementById('dateRangeStartOWM').min = today.toISOString().split("T")[0];
       document.getElementById('dateRangeEndOWM').min = today.toISOString().split("T")[0];
@@ -2370,16 +2369,6 @@
       document.getElementById('dateRangeEndR').min = today.toISOString().split("T")[0];
       document.getElementById('dateRangeStartRM').min = today.toISOString().split("T")[0];
       document.getElementById('dateRangeEndRM').min = today.toISOString().split("T")[0];
-
-      document.getElementById('dateRangeStartOW').max = nextYear.toISOString().split("T")[0];
-      document.getElementById('dateRangeEndOW').max = nextYear.toISOString().split("T")[0];
-      document.getElementById('dateRangeStartOWM').max = nextYear.toISOString().split("T")[0];
-      document.getElementById('dateRangeEndOWM').max = nextYear.toISOString().split("T")[0];
-
-      document.getElementById('dateRangeStartR').max = nextYear.toISOString().split("T")[0];
-      document.getElementById('dateRangeEndR').max = nextYear.toISOString().split("T")[0];
-      document.getElementById('dateRangeStartRM').max = nextYear.toISOString().split("T")[0];
-      document.getElementById('dateRangeEndRM').max = nextYear.toISOString().split("T")[0];
     </script>
 
     <!-- ======= Wave Animation ======= -->
