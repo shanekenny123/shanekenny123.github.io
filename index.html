@@ -94,8 +94,8 @@
                     <div class="form-group">
                       <div class="dates">
                         <label for="dateRangeStartOW">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
-                        <input class="form-control" type="date" id="dateRangeStartOW" name="dateRangeStart" max="2021-10-31" required>
-                        <input class="form-control" type="date" id="dateRangeEndOW" name="dateRangeEnd" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeStartOW" name="dateRangeStart" required>
+                        <input class="form-control" type="date" id="dateRangeEndOW" name="dateRangeEnd" required>
                       </div>
                     </div>
 
@@ -616,8 +616,8 @@
                     <div class="form-group">
                       <div class="dates">
                         <label for="dateRangeStartR">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
-                        <input class="form-control" type="date" id="dateRangeStartR" name="dateRangeStart" max="2021-10-31" required>
-                        <input class="form-control" type="date" id="dateRangeEndR" name="dateRangeEnd" max="2021-10-31" required>
+                        <input class="form-control" type="date" id="dateRangeStartR" name="dateRangeStart" required>
+                        <input class="form-control" type="date" id="dateRangeEndR" name="dateRangeEnd" required>
                       </div>
                     </div>
 
@@ -1226,8 +1226,8 @@
                         <div class="dates">
                           <label for="dateRangeStartOWM">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
                           <div class="input-group">
-                            <input class="form-control" type="date" id="dateRangeStartOWM" name="dateRangeStart" max="2021-10-31" required>
-                            <input class="form-control" type="date" id="dateRangeEndOWM" name="dateRangeEnd" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeStartOWM" name="dateRangeStart"  required>
+                            <input class="form-control" type="date" id="dateRangeEndOWM" name="dateRangeEnd" required>
                           </div>
                         </div>
                       </div>
@@ -1751,8 +1751,8 @@
                         <div class="dates">
                           <label for="dateRangeStartRM">I Want To Depart Between: <font color="#FF0000">*</font></label><br>
                           <div class="input-group">
-                            <input class="form-control" type="date" id="dateRangeStartRM" name="dateRangeStart" max="2021-10-31" required>
-                            <input class="form-control" type="date" id="dateRangeEndRM" name="dateRangeEnd" max="2021-10-31" required>
+                            <input class="form-control" type="date" id="dateRangeStartRM" name="dateRangeStart" required>
+                            <input class="form-control" type="date" id="dateRangeEndRM" name="dateRangeEnd" required>
                           </div>
                         </div>
                       </div>
@@ -2361,14 +2361,22 @@
       document.getElementById('dateRangeEndRM').valueAsDate = today;
 
       document.getElementById('dateRangeStartOW').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeStartOW').max = "2021-10-31";
       document.getElementById('dateRangeEndOW').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndOW').max = "2021-10-31";
       document.getElementById('dateRangeStartOWM').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeStartOWM').max = "2021-10-31";
       document.getElementById('dateRangeEndOWM').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndOWM').max = "2021-10-31";
 
       document.getElementById('dateRangeStartR').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeStartR').max = "2021-10-31";
       document.getElementById('dateRangeEndR').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndR').max = "2021-10-31";
       document.getElementById('dateRangeStartRM').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeStartRM').max = "2021-10-31";
       document.getElementById('dateRangeEndRM').min = today.toISOString().split("T")[0];
+      document.getElementById('dateRangeEndRM').max = "2021-10-31";
     </script>
 
     <!-- ======= Wave Animation ======= -->
