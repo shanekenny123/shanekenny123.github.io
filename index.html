@@ -84,40 +84,6 @@
                 </li>
               </ul>
             </div>
-
-            <script>
-              var airportData;
-
-              document.addEventListener('DOMContentLoaded', function() {
-
-				const url_string = window.location.href;
-				const url = url_string.substring(url_string.indexOf('?')).replaceAll('%3A', '');
-				//const url = new URL(url_string);
-				//const origin = url.searchParams.get("originAirport");
-				var protectedUrl = "";
-				var queryType;
-
-				if (url.includes("returnDay")) {
-					protectedUrl = "https://skyfaresfareretrieverapi.link/return" + url
-					queryType = "return";
-				}
-				else {
-					protectedUrl = "https://skyfaresfareretrieverapi.link/oneWay" + url
-					queryType = "oneway";
-				}
-
-				fetch(protectedUrl)
-				  .then(function (response) {
-        			return response.json(); // call the json method on the response to get JSON
-    			  })
-   				  .then(function (json) {
-   				  airportData = json;
-   				  })
-   				  .catch(function (err) {
-   				  })
-   		        });
-
-            </script>
             <div class="card-body">
               <div class="tab-content" id="card-tab-content">
                 <div class="tab-pane fade show active" id="one-way-c" role="tabpanel" aria-labelledby="one-way-tab">
