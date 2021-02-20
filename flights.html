@@ -277,7 +277,7 @@
 
                           column_div_1 = document.createElement("div");
                           column_div_1.setAttribute("class", "column");
-                          column_div_1.setAttribute("style", "width: 49%;");
+                          column_div_1.setAttribute("style", "width: 50%; float:left");
                           column_row_div.appendChild(column_div_1);
 
                           column_div_2 = document.createElement("div");
@@ -349,6 +349,7 @@
                           button_element.setAttribute("target", "_blank");
                           button_element.setAttribute("rel", "noopener noreferrer");
                           button_element.setAttribute("href", "https://www." + json[i].outboundFlight.airline.replaceAll(" ", "") + ".com/ie/en/trip/flights/select?adults=1&dateOut=" + json[i].outboundFlight.date + "&originIata=" + json[i].outboundFlight.origin + "&destinationIata=" + json[i].outboundFlight.destination + "&tpAdults=1");
+                          button_element.setAttribute("style", "width: auto;");
                           button_element.innerText = "Book";
                           button_wrap.appendChild(button_element)
 
@@ -368,6 +369,7 @@
                           button_element_1.setAttribute("class", "btn-buy");
                           button_element_1.setAttribute("target", "_blank");
                           button_element_1.setAttribute("rel", "noopener noreferrer");
+                          button_element_1.setAttribute("style", "width: auto;");
                           button_element_1.setAttribute("href", "https://www." + json[i].returnFlight.airline.replaceAll(" ", "") + ".com/ie/en/trip/flights/select?adults=1&dateOut=" + json[i].returnFlight.date + "&originIata=" + json[i].returnFlight.origin + "&destinationIata=" + json[i].returnFlight.destination + "&tpAdults=1");
                           button_element_1.innerText = "Book";
                           button_wrap_1.appendChild(button_element_1)
