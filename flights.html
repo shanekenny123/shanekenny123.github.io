@@ -264,6 +264,9 @@
 
                           box_div = document.createElement("div");
                           box_div.setAttribute("class", "box");
+                          if (i % 2 != 0) {
+                            box_div.setAttribute("id", "secondBoxInRow");
+        		          }
         		          box_div.setAttribute("data-aos", "zoom-in");
         		          box_div.setAttribute("data-aos-delay", aos_count);
         		          position_div.appendChild(box_div);
